@@ -10,6 +10,10 @@ module Rulers
 				return [404, {'Content-Type' => 'text/html'}, []]
 			end
 
+			if env['PATH_INFO'] == '/'
+				return [303, {'Location' => 'https://icook.tw/'}, []]
+			end
+
 		  klass, act = get_controller_and_action(env)
 		  controller = klass.new(env)
 		  
