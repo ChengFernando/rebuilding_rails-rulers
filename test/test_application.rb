@@ -17,4 +17,12 @@ class RulersAppTest < Test::Unit::TestCase
 		body = last_response.body
 		assert body["Hello"]
 	end
+
+	def test_request_practice
+		get "/"
+
+		assert last_response.ok?
+		body = last_response.body
+		assert body["Rulers"]
+	end
 end
