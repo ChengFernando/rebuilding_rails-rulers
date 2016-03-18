@@ -11,7 +11,7 @@ module Rulers
 			end
 
 			if env['PATH_INFO'] == '/'
-				return [303, {'Location' => 'https://icook.tw/'}, []]
+				return [303, {'Location' => '/quotes/a_quote'}, []]
 			end
 
 		  klass, act = get_controller_and_action(env)
