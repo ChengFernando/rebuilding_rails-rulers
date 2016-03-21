@@ -2,6 +2,11 @@ require "rulers/version"
 require "rulers/routing"
 require "rulers/util.rb"
 require "rulers/dependencies.rb"
+require "rulers/controller"
+
+# frurhter down, remove class contorller
+# it will go into its own file
+
 
 module Rulers
 	class Application
@@ -29,15 +34,5 @@ module Rulers
 
 
 		end
-	end
-
-	class Controller
-		def initialize(env)
-			@env = env
-		end 
-
-		def env
-			@env
-		end
-	end
+	end	
 end
