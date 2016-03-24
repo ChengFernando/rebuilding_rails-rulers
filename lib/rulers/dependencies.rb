@@ -1,5 +1,5 @@
 class Object
-	@monitor = Monitor.new
+  @monitor = Monitor.new
   @looking_for_consts = {}
 
   def self.const_missing c
