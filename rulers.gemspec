@@ -32,7 +32,8 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "rack"
   gem.add_runtime_dependency "erubis"
+  gem.add_runtime_dependency "multi_json"
+
   gem.add_development_dependency "rack-test"
   gem.add_development_dependency "test-unit"
-  gem.add_development_dependency "multi_json"
 end
