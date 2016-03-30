@@ -1,5 +1,5 @@
 require "multi_json"
-require "pry"
+
 module Rulers
   module Model
     class FileModel
@@ -22,7 +22,25 @@ module Rulers
         @hash[name.to_s] = value
       end
 
+      def self.update(attrs, id)
+        return false if self.find(attrs["id"]).nil?
+        # if ENV["REQUEST_METHOD"] == "POST" 
+          hash = {}
+          hash["submitter"] = attrs["submitter"] || ""
+          hash["quote"] = attrs["quote"] || ""
+          hash["attribution"] = attrs["attribution"] || ""
 
+          File.open("db/quotes/#{id}.json", "w") do |f|
+          f.write <<TEMPLATE
+{
+"submitter": "#{hash["submitter"]}",
+"quote": "#{hash["quote"]}",
+"attribution": "#{hash["attribution"]}"
+}
+TEMPLATE
+          end
+        end
+      end
 
       def self.find(id)
         begin
@@ -60,12 +78,7 @@ TEMPLATE
 
         FileModel.new "db/quotes/#{id}.json"
       end
-
-
-
-
-
     end
   end
-end
+
 

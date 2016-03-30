@@ -5,7 +5,6 @@ module Rulers
   class Controller
     include Rulers::Model
 
-
     def initialize(env)
       @env = env
     end
@@ -24,8 +23,6 @@ module Rulers
       end
 
       eruby.result locals
-
-
     end
 
     def controller_name
